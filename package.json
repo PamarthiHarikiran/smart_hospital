@@ -1,0 +1,23 @@
+{
+  "name": "smart-hospital-monorepo",
+  "version": "1.0.0",
+  "description": "Smart Hospital Management System - Complete MERN Project",
+  "scripts": {
+    "backend": "npm --prefix backend run dev",
+    "backend:start": "npm --prefix backend start",
+    "backend:seed": "npm --prefix backend run seed",
+    "frontend": "npm --prefix frontend run dev",
+    "install:all": "npm --prefix backend install && npm --prefix frontend install --legacy-peer-deps",
+    "seed": "npm --prefix backend run seed",
+    "dev": "node -e \"const { spawn } = require('child_process'); spawn('npm', ['--prefix', 'backend', 'run', 'dev'], { stdio: 'inherit', shell: true }); spawn('npm', ['--prefix', 'frontend', 'run', 'dev'], { stdio: 'inherit', shell: true });\""
+  },
+  "keywords": [
+    "mern",
+    "hospital-management",
+    "react",
+    "express",
+    "mongodb"
+  ],
+  "author": "Smart Hospital Team",
+  "license": "ISC"
+}

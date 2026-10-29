@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: smart-hospital
+    runtime: node
+    region: oregon
+    plan: free
+    # Node 22 comes from .nvmrc (Vite 8 needs >= 22.12)
+    buildCommand: npm --prefix backend install && npm --prefix frontend install --include=dev --legacy-peer-deps && VITE_API_URL=/api npm --prefix frontend run build
+    startCommand: node backend/server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Paste your MongoDB Atlas connection string when Render prompts for it
+      - key: MONGO_URI
+        sync: false
+      # Render generates a strong secret on first deploy
+      - key: JWT_SECRET
+        generateValue: true
